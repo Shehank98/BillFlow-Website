@@ -135,8 +135,8 @@
 
         /* Phone mockup frame */
         .phone-frame {
-            width: 168px;
-            border-radius: 2.2rem;
+            width: 148px;
+            border-radius: 2rem;
             border: 3px solid #334155;
             overflow: hidden;
             background: #000;
@@ -160,8 +160,19 @@
             width: 100%;
             display: block;
         }
-        .app-scroll::-webkit-scrollbar { display: none; }
-        .app-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* App carousel infinite scroll */
+        @keyframes app-slide {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .app-track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: app-slide 40s linear infinite;
+        }
+        .app-track:hover { animation-play-state: paused; }
 
         /* Sticky nav */
         nav {
@@ -1219,31 +1230,36 @@
                 </p>
             </div>
 
-            <!-- Phone carousel -->
-            <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory app-scroll pb-6 px-2 justify-start md:justify-center">
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-home.jpeg" alt="Home Dashboard" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-analytics.jpeg" alt="Analytics" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-payment.jpeg" alt="Payment" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-preorders.jpeg" alt="Pre-Orders" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-06.jpeg" alt="App Screen 6" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-07.jpeg" alt="App Screen 7" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-08.jpeg" alt="App Screen 8" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-09.jpeg" alt="App Screen 9" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-10.jpeg" alt="App Screen 10" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-11.jpeg" alt="App Screen 11" loading="lazy"></div></div>
-
-                <div class="snap-center shrink-0"><div class="phone-frame"><img src="screenshots/app/app-12.jpeg" alt="App Screen 12" loading="lazy"></div></div>
-
+            <!-- Phone carousel – infinite auto-scroll -->
+            <div class="overflow-hidden w-full" style="mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);">
+                <div class="app-track">
+                    <!-- Set 1 -->
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-home.jpeg" alt="Home" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-analytics.jpeg" alt="Analytics" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-payment.jpeg" alt="Payment" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-preorders.jpeg" alt="Pre-Orders" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-transaction.jpeg" alt="Transaction" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-06.jpeg" alt="Screen 6" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-07.jpeg" alt="Screen 7" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-08.jpeg" alt="Screen 8" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-09.jpeg" alt="Screen 9" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-10.jpeg" alt="Screen 10" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-11.jpeg" alt="Screen 11" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-12.jpeg" alt="Screen 12" loading="lazy"></div>
+                    <!-- Set 2 – duplicate for seamless loop -->
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-home.jpeg" alt="Home" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-analytics.jpeg" alt="Analytics" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-payment.jpeg" alt="Payment" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-preorders.jpeg" alt="Pre-Orders" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-transaction.jpeg" alt="Transaction" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-06.jpeg" alt="Screen 6" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-07.jpeg" alt="Screen 7" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-08.jpeg" alt="Screen 8" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-09.jpeg" alt="Screen 9" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-10.jpeg" alt="Screen 10" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-11.jpeg" alt="Screen 11" loading="lazy"></div>
+                    <div class="phone-frame shrink-0"><img src="screenshots/app/app-12.jpeg" alt="Screen 12" loading="lazy"></div>
+                </div>
             </div>
 
             <!-- Feature pills -->
